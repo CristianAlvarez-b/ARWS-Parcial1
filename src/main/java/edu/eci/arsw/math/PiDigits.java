@@ -47,6 +47,7 @@ public class PiDigits {
         }
 
         while(true){
+            //Esta espera es por si los hilos resulven el problema rapido, para que el usuario no espere los 5 segundos
             Thread.sleep(100);
             boolean isAnyThreadAlive = true;
             int initialCount = 0;
@@ -62,6 +63,8 @@ public class PiDigits {
             if(!isAnyThreadAlive || initialCount == count){
                 break;
             }
+            //Si preciso un hilo acabo su ejecucion despues de haber consultado si seguia vivo, entonces se ejecutara la espera.
+            //Despues de dar enter al scanner se mostrara el resultado en ese caso.
             Thread.sleep(5000);
             flag.set(true);
             int countCurrentDigits = 0;
